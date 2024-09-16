@@ -15,34 +15,7 @@
       </p>
     </div>
     <div class="welcome-hero-serch-box">
-      <form class="welcome-hero-form">
-        <div class="single-welcome-hero-form mt-5">
-          <h3 class="mt-5">what?</h3>
-          <input
-            type="text"
-            name="query"
-            placeholder="Ex: place, restaurant, food, automobile"
-          />
-          <div class="welcome-hero-form-icon">
-            <i class="flaticon-list-with-dots"></i>
-          </div>
-        </div>
-        <div class="single-welcome-hero-form">
-          <h3>location</h3>
-          <input
-            type="text"
-            name="location"
-            placeholder="Ex: london, newyork, rome"
-          />
-          <div class="welcome-hero-form-icon">
-            <i class="flaticon-gps-fixed-indicator"></i>
-          </div>
-        </div>
-        <br />
-        <button class="welcome-hero-btn" type="submit">
-          search <i data-feather="search"></i>
-        </button>
-      </form>
+      {% load welcome_hero %} {%  welcome_form  %}
     </div>
   </div>
 </section>

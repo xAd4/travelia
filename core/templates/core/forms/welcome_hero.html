@@ -1,0 +1,28 @@
+<form method="GET" class="welcome-hero-form" action="{% url 'place_list' %}">
+  <div class="single-welcome-hero-form mt-5">
+    <h3 class="mt-5">Destiny</h3>
+    <select name="destiny" class="form-control">
+      {% for destiny in form.destiny.field.queryset %}
+      <option value="{{ destiny.id }}">{{ destiny.name_destiny }}</option>
+      {% endfor %}
+    </select>
+    <div class="welcome-hero-form-icon">
+      <i class="flaticon-list-with-dots"></i>
+    </div>
+  </div>
+  <div class="single-welcome-hero-form">
+    <h3>Location</h3>
+    <select name="location" class="form-control">
+      {% for location in form.location.field.queryset %}
+      <option value="{{ location.id }}">{{ location.city }}</option>
+      {% endfor %}
+    </select>
+    <div class="welcome-hero-form-icon">
+      <i class="flaticon-gps-fixed-indicator"></i>
+    </div>
+  </div>
+  <br />
+  <button class="welcome-hero-btn" type="submit">
+    search <i data-feather="search"></i>
+  </button>
+</form>

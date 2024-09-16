@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'location',
     'helpers',
     'article',
+    'places',
 ]
 
 MIDDLEWARE = [
