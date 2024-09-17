@@ -1,27 +1,6 @@
 {% extends "core/base.html" %} 
 {% block content %} 
 {% load static %}
-<!--welcome-hero start -->
-<section id="home" class="welcome-hero">
-  <div class="container">
-    <div class="welcome-hero-txt">
-      <h2>
-        best place to find and explore <br />
-        that all you need
-      </h2>
-      <p>
-        Find Best Place, Restaurant, Hotel, Real State and many more think in
-        just One click
-      </p>
-    </div>
-    <div class="welcome-hero-serch-box">
-      {% load welcome_hero %} {%  welcome_form  %}
-    </div>
-  </div>
-</section>
-<!--/.welcome-hero-->
-<!--welcome-hero end -->
-
 <!--list-topics start -->
 <section id="list-topics" class="list-topics">
   <div class="container">
@@ -33,7 +12,7 @@
               <i class="flaticon-restaurant"></i>
             </div>
             <h2><a href="#">resturent</a></h2>
-            <p>150 listings</p>
+            <p>{{ places_restaurant }}</p>
           </div>
         </li>
         <li>
@@ -42,7 +21,7 @@
               <i class="flaticon-building"></i>
             </div>
             <h2><a href="#">hotels</a></h2>
-            <p>185 listings</p>
+            <p>{{ hotels }}</p>
           </div>
         </li>
         <li>
@@ -51,7 +30,7 @@
               <i class="flaticon-pills"></i>
             </div>
             <h2><a href="#">healthcaree</a></h2>
-            <p>200 listings</p>
+            <p>{{healthcare}}</p>
           </div>
         </li>
       </ul>

@@ -1,81 +1,80 @@
 {% extends "core/base.html" %}
 {% block content %}
 {% load static %}
-<h2>Filtered Places</h2>
-<form method="GET" action="{% url 'place_list' %}" class="welcome-hero-form">
-  <!-- Incluye aquí los selects para filtrar -->
-  {% include "core/forms/welcome_hero.html" %}
-</form>
-
-<div class="row">
-  {% for place in places %}
-  <div class="col-md-4 col-sm-6">
-    <div class="single-explore-item">
-      <div class="single-explore-img">
-        <img src="{% static 'core/assets/images/explore/e1.jpg' %}" alt="explore image" />
-        <div class="single-explore-img-info">
-          <button onclick="window.location.href='#'">best rated</button>
-          <div class="single-explore-image-icon-box">
-            <ul>
-              <li>
-                <div class="single-explore-image-icon">
-                  <i class="fa fa-arrows-alt"></i>
-                </div>
-              </li>
-              <li>
-                <div class="single-explore-image-icon">
-                  <i class="fa fa-bookmark-o"></i>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="single-explore-txt bg-theme-1">
-        <h2><a href="#">{{ place.name_place }}</a></h2>
-        <p class="explore-rating-price">
-          <span class="explore-rating">5.0</span>
-          <span class="explore-price-box">
-            from <span class="explore-price">{{ place.budget }}</span>
-          </span>
-          <a href="#">{{ place.destiny }}</a>
-          <a href="#">{{ place.city }}</a>
-        </p>
-        <div class="explore-person">
-          <div class="row">
-            <div class="col-sm-2">
-              <div class="explore-person-img">
-                <a href="#">
-                  <img src="{% static 'core/assets/images/explore/person.png' %}" alt="explore person" />
-                </a>
-              </div>
-            </div>
-            <div class="col-sm-10">
-              <p>{{ place.description|striptags|safe|truncatechars:"200" }}</p>
-            </div>
-          </div>
-        </div>
-        <div class="explore-open-close-part">
-          <div class="row">
-            <div class="col-sm-5">
-              <button class="close-btn" onclick="window.location.href='#'">
-                close now
-              </button>
-            </div>
-            <div class="col-sm-7">
-              <div class="explore-map-icon">
-                <a href="#"><i data-feather="map-pin"></i></a>
-                <a href="#"><i data-feather="upload"></i></a>
-                <a href="#"><i data-feather="heart"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<section id="works" class="works" style="margin-top:100px; margin-button:100px">
+  <div class="container">
+    <div class="section-header">
+      <h2>how it works</h2>
     </div>
-  </div>
-  {% empty %}
-  <p>No places found.</p>
-  {% endfor %}
+    <div class="row">
+      {% for place in places %}
+      <div class="col-md-4 col-sm-6">
+        <div class="single-exfplore-item">
+          <div class="single-explore-img">
+            <img src="{% static 'core/assets/images/explore/e1.jpg' %}" alt="explore image" />
+            <div class="single-explore-img-info">
+              <button onclick="window.location.href='#'">best rated</button>
+              <div class="single-explore-image-icon-box">
+                <ul>
+                  <li>
+                    <div class="single-explore-image-icon">
+                      <i class="fa fa-arrows-alt"></i>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="single-explore-image-icon">
+                      <i class="fa fa-bookmark-o"></i>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="single-explore-txt bg-theme-1">
+            <h2><a href="#">{{ place.name_place }}</a></h2>
+            <p class="explore-rating-price">
+              <span class="explore-rating">5.0</span>
+              <span class="explore-price-box">
+                from <span class="explore-price">{{ place.budget }}</span>
+              </span>
+              <a href="#">{{ place.destiny }}</a>
+              <a href="#">{{ place.city }}</a>
+            </p>
+            <div class="explore-person">
+              <div class="row">
+                <div class="col-sm-2">
+                  <div class="explore-person-img">
+                    <a href="#">
+                      <img src="{% static 'core/assets/images/explore/person.png' %}" alt="explore person" />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-sm-10">
+                  <p>{{ place.description|striptags|safe|truncatechars:"100" }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="explore-open-close-part">
+              <div class="row">
+                <div class="col-sm-5">
+                  <button class="close-btn" onclick="window.location.href='#'">
+                    close now
+                  </button>
+                </div>
+                <div class="col-sm-7">
+                  <div class="explore-map-icon">
+                    <a href="#"><i data-feather="map-pin"></i></a>
+                    <a href="#"><i data-feather="upload"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <p>No places found.</p>
+      {% endfor %}
+  </section>
 </div>
 {% endblock %}
