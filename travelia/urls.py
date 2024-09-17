@@ -21,12 +21,16 @@ from django.urls import path, include
 from core import urls
 ## Places URLs
 from places import urls
+## Work URLs
+from work import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("core.urls")),
     # Places URLs
     path("", include("places.urls")),
+    # Work URLs
+    path("", include("work.urls")),
 ]
 
 #! MEDIA

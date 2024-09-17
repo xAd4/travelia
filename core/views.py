@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 from .forms import PlaceFilterForm
 from places.models import Place
 from destiny.models import Destiny
+from work.models import Work
 
 # Create your views here.
 class HomeTemplateView(TemplateView):
@@ -19,6 +20,8 @@ class HomeTemplateView(TemplateView):
 
         healthcare = Destiny.objects.get(name_destiny="Hospitales")
         context['healthcare'] = Place.objects.filter(destiny=healthcare).count()
+
+        context['works'] = Work.objects.all()
 
         return context
     

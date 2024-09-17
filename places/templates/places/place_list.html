@@ -1,10 +1,13 @@
 {% extends "core/base.html" %}
 {% block content %}
 {% load static %}
+<div class="welcome-hero-serch-box">
+  {% load welcome_hero %} {%  welcome_form  %}
+</div>
 <section id="works" class="works" style="margin-top:100px; margin-button:100px">
   <div class="container">
     <div class="section-header">
-      <h2>how it works</h2>
+      <h2>Lugares disponibles para ti</h2>
     </div>
     <div class="row">
       {% for place in places %}
@@ -13,7 +16,6 @@
           <div class="single-explore-img">
             <img src="{% static 'core/assets/images/explore/e1.jpg' %}" alt="explore image" />
             <div class="single-explore-img-info">
-              <button onclick="window.location.href='#'">best rated</button>
               <div class="single-explore-image-icon-box">
                 <ul>
                   <li>
@@ -33,7 +35,6 @@
           <div class="single-explore-txt bg-theme-1">
             <h2><a href="#">{{ place.name_place }}</a></h2>
             <p class="explore-rating-price">
-              <span class="explore-rating">5.0</span>
               <span class="explore-price-box">
                 from <span class="explore-price">{{ place.budget }}</span>
               </span>
@@ -44,7 +45,7 @@
               <div class="row">
                 <div class="col-sm-2">
                   <div class="explore-person-img">
-                    <a href="#">
+                    <a href="{% url 'home' %}">
                       <img src="{% static 'core/assets/images/explore/person.png' %}" alt="explore person" />
                     </a>
                   </div>
@@ -54,26 +55,11 @@
                 </div>
               </div>
             </div>
-            <div class="explore-open-close-part">
-              <div class="row">
-                <div class="col-sm-5">
-                  <button class="close-btn" onclick="window.location.href='#'">
-                    close now
-                  </button>
-                </div>
-                <div class="col-sm-7">
-                  <div class="explore-map-icon">
-                    <a href="#"><i data-feather="map-pin"></i></a>
-                    <a href="#"><i data-feather="upload"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
       {% empty %}
-      <p>No places found.</p>
+      <p>No hay sitios encontrados.</p>
       {% endfor %}
   </section>
 </div>
