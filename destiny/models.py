@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-#! Destiny or place where you will travel
+#! Destino para el modelo "Place"
 class Destiny(models.Model):
     name_destiny = models.CharField(max_length=100, verbose_name="Nombre del destino")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")

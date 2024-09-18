@@ -10,7 +10,7 @@
       <h2>Lugares disponibles para ti</h2>
     </div>
     <div class="row">
-      {% for place in places %}
+      {% for place in object_list %}
       <div class="col-md-4 col-sm-6">
         <div class="single-exfplore-item">
           <div class="single-explore-img">
@@ -59,7 +59,7 @@
         </div>
       </div>
       {% empty %}
-      <p>No hay sitios encontrados.</p>
+      <h1>No hay sitios encontrados.</h1>
       {% endfor %}
   </section>
 </div>

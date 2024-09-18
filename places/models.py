@@ -6,7 +6,7 @@ from destiny.models import Destiny
 from location.models import Location
 
 
-#! Method Security 1
+#! Método de seguridad 1
 def custom_upload_to(instance, filename):
     if instance.pk:
         old_instance = Place.objects.get(pk=instance.pk)
@@ -14,7 +14,7 @@ def custom_upload_to(instance, filename):
     return 'place/' + filename
 
 # Create your models here.
-#! Places to hang out
+#! Lugares de destino
 class Place(models.Model):
     image = models.ImageField(upload_to=custom_upload_to, verbose_name="Foto del lugar")
     name_place = models.CharField(max_length=100, verbose_name="Nombre del lugar")
@@ -40,7 +40,7 @@ class Place(models.Model):
         self.clean()
         super().save(*args, **kwargs)
 
-#! Method Security 2
+#! Método de seguridad 2
 @receiver(post_delete, sender=Place)
 def delete_image_on_delete(sender, instance, **kwargs):
     if instance.image:

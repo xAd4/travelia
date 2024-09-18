@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-#! City where you will travel
+#! Ciudades para el modelo "Place"
 class Location(models.Model):
     city = models.CharField(max_length=100, verbose_name="Nombre de la ciudad")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")

@@ -10,6 +10,7 @@ def custom_upload_to(instance, filename):
     return 'work/' + filename
 
 # Create your models here.
+#! Modelo de trabajo que indica las funciones de la empresa
 class Work(models.Model):
     image = models.ImageField(upload_to=custom_upload_to, verbose_name="Imágen")
     title = models.CharField(max_length=100, verbose_name="Título")

@@ -1,4 +1,5 @@
 <form method="GET" class="welcome-hero-form" action="{% url 'place_list' %}">
+  {% csrf_token %}
   <div class="single-welcome-hero-form mt-5">
     <h3 class="mt-5">Destiny</h3>
     <select name="destiny" >

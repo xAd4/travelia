@@ -8,4 +8,5 @@ from .models import Work
 class ReadOnlyFields(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at")
 
+#! Registro de modelo
 admin.site.register(Work, ReadOnlyFields)
