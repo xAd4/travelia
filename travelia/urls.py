@@ -23,6 +23,8 @@ from core import urls
 from places import urls
 ## Work URLs
 from work import urls
+## Article URLs
+from article import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +33,8 @@ urlpatterns = [
     path("", include("places.urls")),
     # Work URLs
     path("", include("work.urls")),
+    ## Article URLs
+    path("", include("article.urls")),
 ]
 
 #! MEDIA

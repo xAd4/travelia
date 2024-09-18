@@ -3,6 +3,7 @@ from .forms import PlaceFilterForm
 from places.models import Place
 from destiny.models import Destiny
 from work.models import Work
+from article.models import Article
 
 # Create your views here.
 class HomeTemplateView(TemplateView):
@@ -23,16 +24,14 @@ class HomeTemplateView(TemplateView):
 
         context['works'] = Work.objects.all()
 
+        context['articles'] = Article.objects.all()
+
         return context
     
-        
-
     def post(self, request, *args, **kwargs):
         form = PlaceFilterForm(request.POST)
         if form.is_valid():
-            # Procesar los datos si es necesario
             destiny = form.cleaned_data['destiny']
             location = form.cleaned_data['location']
-            # Puedes hacer algo con destiny y location aquí
 
         return self.render_to_response(self.get_context_data(form=form))

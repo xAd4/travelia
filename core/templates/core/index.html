@@ -5,12 +5,11 @@
   <div class="container">
     <div class="welcome-hero-txt">
       <h2>
-        best place to find and explore <br />
-        that all you need
+        El mejor lugar para conseguir <br />
+        eso que necesitas
       </h2>
       <p>
-        Find Best Place, Restaurant, Hotel, Real State and many more think in
-        just One click
+        Encuentra los mejores restaurantes, hoteles y hospitales para tu bienestar solo con pocos clicks
       </p>
     </div>
     <div class="welcome-hero-serch-box">
@@ -66,7 +65,7 @@
 <section id="works" class="works">
   <div class="container">
     <div class="section-header">
-      <h2>Así trabajamos</h2>
+      <h2>Te ofrecemos nuestros mejores servicios</h2>
       <p>Lee más sobre nuestra forma de trabajar</p>
     </div>
     <!--/.section-header-->
@@ -109,66 +108,27 @@
     <!--/.section-header-->
     <div class="blog-content">
       <div class="row">
+        {% for article in articles %}
         <div class="col-md-4 col-sm-6">
           <div class="single-blog-item">
             <div class="single-blog-item-img">
               <img
-                src="{% static 'core/assets/images/blog/b1.jpg' %}"
+                src="{{article.image.url}}"
                 alt="blog image"
               />
             </div>
             <div class="single-blog-item-txt">
               <h2>
-                <a href="#">How to find your Desired Place more quickly</a>
+                <a href="{% url 'article-detail' article.id %}">{{article.title}}</a>
               </h2>
-              <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
+              <h4>posted <span>by</span><b> {{article.user_post.username}} </b>{{article.created_at}}</h4>
               <p>
-                Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed
-                do eiusmod tempore incididunt ut labore et dolore magna.
+                {{article.description|striptags|safe|truncatechars:"200"}}
               </p>
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="single-blog-item">
-            <div class="single-blog-item-img">
-              <img
-                src="{% static 'core/assets/images/blog/b2.jpg' %}"
-                alt="blog image"
-              />
-            </div>
-            <div class="single-blog-item-txt">
-              <h2>
-                <a href="#">How to find your Desired Place more quickly</a>
-              </h2>
-              <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed
-                do eiusmod tempore incididunt ut labore et dolore magna.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="single-blog-item">
-            <div class="single-blog-item-img">
-              <img
-                src="{% static 'core/assets/images/blog/b3.jpg' %}"
-                alt="blog image"
-              />
-            </div>
-            <div class="single-blog-item-txt">
-              <h2>
-                <a href="#">How to find your Desired Place more quickly</a>
-              </h2>
-              <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed
-                do eiusmod tempore incididunt ut labore et dolore magna.
-              </p>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
