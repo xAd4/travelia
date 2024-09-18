@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Place
 from core.forms import PlaceFilterForm
 
@@ -37,3 +37,7 @@ class PlaceListView(ListView):
         
         #? Retornar el contexto actualizado
         return context
+    
+class PlaceDetailView(DetailView):
+    model = Place
+    template_name = "places/place_detail.html"
